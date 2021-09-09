@@ -1,19 +1,34 @@
 import { UseAuth } from "contexts/auth/hook";
+import {
+  Container,
+  IllustrationContainer,
+  PrincipalContainer,
+  Button,
+} from "./styles";
+import GoogleIcon from "assets/google.svg";
+import ChatImg from "assets/chat.svg";
 
 export function Login() {
-  const { user, logInWithGoogle } = UseAuth();
+  const { logInWithGoogle } = UseAuth();
 
   const handleLogIn = async () => {
     await logInWithGoogle();
   };
 
   return (
-    <div>
-      <div>
-        <h1>login page</h1>
-        <button onClick={handleLogIn}>LogIn</button>
-        <h2>{user && user?.name}</h2>
-      </div>
-    </div>
+    <Container>
+      <IllustrationContainer>
+        <img src={ChatImg} alt="Illustration" />
+        <h1>Chat.dev</h1>
+        <span>Converse com seus amigos em tempo real.</span>
+      </IllustrationContainer>
+      <PrincipalContainer>
+        <span>LogIn</span>
+        <Button onClick={handleLogIn}>
+          <img src={GoogleIcon} alt="google" />
+          Entrar com o google
+        </Button>
+      </PrincipalContainer>
+    </Container>
   );
 }
