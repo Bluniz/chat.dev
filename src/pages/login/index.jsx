@@ -17,14 +17,28 @@ export function Login() {
 
   return (
     <Container>
-      <IllustrationContainer>
+      <IllustrationContainer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ delay: 0.5 }}
+      >
         <img src={ChatImg} alt="Illustration" />
         <h1>Chat.dev</h1>
         <span>Converse com seus amigos em tempo real.</span>
       </IllustrationContainer>
-      <PrincipalContainer>
+      <PrincipalContainer
+        initial={{ x: 300, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: -300, opacity: 0 }}
+        transition={{ delay: 0.5 }}
+      >
         <span>LogIn</span>
-        <Button onClick={handleLogIn}>
+        <Button
+          onClick={handleLogIn}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
           <img src={GoogleIcon} alt="google" />
           Entrar com o google
         </Button>

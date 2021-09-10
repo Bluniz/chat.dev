@@ -1,7 +1,6 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { breakpoints, breakAt } from "styles/breakpoints";
-
-console.log(breakpoints);
 
 export const Container = styled.main`
   width: 100vw;
@@ -12,12 +11,14 @@ export const Container = styled.main`
 
   background: #13315c;
 
+  overflow: hidden;
+
   ${breakAt(breakpoints.md)} {
     flex-direction: row;
   }
 `;
 
-export const IllustrationContainer = styled.section`
+export const IllustrationContainer = styled(motion.section)`
   flex: 3;
 
   display: flex;
@@ -59,7 +60,7 @@ export const IllustrationContainer = styled.section`
   }
 `;
 
-export const PrincipalContainer = styled.section`
+export const PrincipalContainer = styled(motion.section)`
   flex: 1;
   color: #eef4ed;
 
@@ -87,7 +88,7 @@ export const PrincipalContainer = styled.section`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled(motion.button)`
   border: 2px solid #0b2545;
   background: transparent;
   color: #eef4ed;
