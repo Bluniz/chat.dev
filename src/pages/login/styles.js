@@ -9,7 +9,7 @@ export const Container = styled.main`
   display: flex;
   flex-direction: column;
 
-  background: #13315c;
+  background: ${({ theme }) => theme.colors.background.primary};
 
   overflow: hidden;
 
@@ -25,7 +25,7 @@ export const IllustrationContainer = styled(motion.section)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #eef4ed;
+  color: ${({ theme }) => theme.colors.green[300]};
 
   & > h1 {
     font-size: 3rem;
@@ -54,8 +54,8 @@ export const IllustrationContainer = styled(motion.section)`
     }
 
     & > img {
-      width: 60rem;
-      height: 60rem;
+      width: 50rem;
+      height: 50rem;
     }
   }
 `;
@@ -78,7 +78,8 @@ export const PrincipalContainer = styled(motion.section)`
   }
 
   ${breakAt(breakpoints.md)} {
-    background: #0b2545;
+    background: ${({ theme }) => theme.colors.background.primary};
+    border-left: 1px solid ${({ theme }) => theme.colors.background.secondary};
     justify-content: center;
     & > span {
       font-size: 3rem;
@@ -89,7 +90,7 @@ export const PrincipalContainer = styled(motion.section)`
 `;
 
 export const Button = styled(motion.button)`
-  border: 2px solid #0b2545;
+  border: 2px solid ${({ theme }) => theme.colors.background.secondary};
   background: transparent;
   color: #eef4ed;
   font-weight: 500;
@@ -105,11 +106,17 @@ export const Button = styled(motion.button)`
 
   transition: border 0.2s;
 
+  & > img {
+    width: 3rem;
+    height: 3rem;
+  }
+
   &:hover {
-    border: 2px solid #eef4ed;
+    border: 2px solid ${({ theme }) => theme.colors.green[300]};
+    color: ${({ theme }) => theme.colors.green[300]};
   }
 
   ${breakAt(breakpoints.md)} {
-    border-color: #13315c;
+    border-color: ${({ theme }) => theme.colors.background.secondary};
   }
 `;

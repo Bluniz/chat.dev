@@ -1,10 +1,12 @@
 import { createContext, useEffect, useState } from "react";
-import { auth } from "services/firebase";
+import { useHistory } from "react-router-dom";
+import { auth, database } from "services/firebase";
 
 export const AuthContext = createContext(null);
 
 export function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
+  const history = useHistory();
 
   const logInWithGoogle = async () => {
     const provider = new auth.GoogleAuthProvider();
@@ -21,6 +23,14 @@ export function AuthContextProvider({ children }) {
         }
 
         setUser({ name: displayName, avatar: photoURL, id: uid });
+
+        const db = database.getDatabase();
+
+        await database.set(database.ref(db, "workspace"), {
+          id: uid,
+        });
+
+        history.push(`/home`);
       }
     } catch (error) {
       console.log(error);
@@ -41,12 +51,16 @@ export function AuthContextProvider({ children }) {
           name: displayName,
           avatar: photoURL,
         });
+
+        //history.push("/home");
+      } else {
+        history.push("/");
       }
     });
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [history]);
 
   return (
     <AuthContext.Provider value={{ user, logInWithGoogle }}>
