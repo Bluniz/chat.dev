@@ -3,12 +3,12 @@ import "services/firebase";
 import { AppContextProvider } from "contexts/appProvider";
 import { GlobalStyles } from "styles/global";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider, darkTheme } from "styles/theme";
+import { ThemeProvider, darkTheme } from "styles/themes";
 
 function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider providerTheme={darkTheme}>
         <AppContextProvider>
           <GlobalStyles />
           <Routes />

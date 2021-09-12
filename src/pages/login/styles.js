@@ -1,122 +1,129 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
-import { breakpoints, breakAt } from "styles/breakpoints";
 
 export const Container = styled.main`
-  width: 100vw;
-  height: 100vh;
+  ${({ theme }) => css`
+    width: 100vw;
+    height: 100vh;
 
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  background: ${({ theme }) => theme.colors.background.primary};
+    background: ${theme.colors.background.primary};
 
-  overflow: hidden;
+    overflow: hidden;
 
-  ${breakAt(breakpoints.md)} {
-    flex-direction: row;
-  }
+    ${theme.breakAt(theme.breakpoints.md)} {
+      flex-direction: row;
+    }
+  `}
 `;
 
 export const IllustrationContainer = styled(motion.section)`
-  flex: 3;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: ${({ theme }) => theme.colors.green[300]};
-
-  & > h1 {
-    font-size: 3rem;
-  }
-
-  & > span {
-    padding-top: 1rem;
-    font-size: 1.2rem;
-  }
-
-  & > img {
-    width: 30rem;
-    height: 30rem;
-  }
-
-  ${breakAt(breakpoints.md)} {
+  ${({ theme }) => css`
     flex: 3;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: ${theme.colors.text.primary};
+
     & > h1 {
-      font-size: 4rem;
+      font-size: 3rem;
     }
 
     & > span {
       padding-top: 1rem;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
 
     & > img {
-      width: 50rem;
-      height: 50rem;
+      width: 30rem;
+      height: 30rem;
     }
-  }
+
+    ${theme.breakAt(theme.breakpoints.md)} {
+      flex: 3;
+
+      & > h1 {
+        font-size: 4rem;
+      }
+
+      & > span {
+        padding-top: 1rem;
+        font-size: 1.5rem;
+      }
+
+      & > img {
+        width: 50rem;
+        height: 50rem;
+      }
+    }
+  `}
 `;
 
 export const PrincipalContainer = styled(motion.section)`
-  flex: 1;
-  color: #eef4ed;
+  ${({ theme }) => css`
+    flex: 1;
+    color: #eef4ed;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 
-  gap: 1rem;
+    gap: 1rem;
 
-  & > span {
-    font-size: 3rem;
-    font-weight: 700;
-    display: none;
-  }
-
-  ${breakAt(breakpoints.md)} {
-    background: ${({ theme }) => theme.colors.background.primary};
-    border-left: 1px solid ${({ theme }) => theme.colors.background.secondary};
-    justify-content: center;
     & > span {
       font-size: 3rem;
       font-weight: 700;
-      display: block;
+      display: none;
     }
-  }
+
+    ${theme.breakAt(theme.breakpoints.md)} {
+      background: ${theme.colors.background.primary};
+      border-left: 1px solid ${theme.colors.background.secondary};
+      justify-content: center;
+      & > span {
+        font-size: 3rem;
+        font-weight: 700;
+        display: block;
+      }
+    }
+  `}
 `;
 
 export const Button = styled(motion.button)`
-  border: 2px solid ${({ theme }) => theme.colors.background.secondary};
-  background: transparent;
-  color: #eef4ed;
-  font-weight: 500;
-  font-size: 1.5rem;
+  ${({ theme }) => css`
+    border: 2px solid ${theme.colors.background.secondary};
+    background: transparent;
+    color: ${theme.colors.text.primary};
+    font-weight: 500;
+    font-size: 1.5rem;
 
-  padding: 1rem 3rem;
-  border-radius: 0.9rem;
+    padding: 1rem 3rem;
+    border-radius: 0.9rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 
-  transition: border 0.2s;
+    transition: border 0.2s;
 
-  & > img {
-    width: 3rem;
-    height: 3rem;
-  }
+    & > img {
+      width: 3rem;
+      height: 3rem;
+    }
 
-  &:hover {
-    border: 2px solid ${({ theme }) => theme.colors.green[300]};
-    color: ${({ theme }) => theme.colors.green[300]};
-  }
+    &:hover {
+      border: 2px solid ${theme.colors.green[300]};
+      color: ${theme.colors.green[300]};
+    }
 
-  ${breakAt(breakpoints.md)} {
-    border-color: ${({ theme }) => theme.colors.background.secondary};
-  }
+    ${theme.breakAt(theme.breakpoints.md)} {
+      border-color: ${theme.colors.background.secondary};
+    }
+  `}
 `;
