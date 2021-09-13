@@ -9,7 +9,7 @@ export const Container = styled.main`
     display: flex;
     flex-direction: column;
 
-    background: ${theme.colors.background.primary};
+    background: ${theme.colors.background.gradient};
 
     overflow: hidden;
 
@@ -56,8 +56,8 @@ export const IllustrationContainer = styled(motion.section)`
       }
 
       & > img {
-        width: 50rem;
-        height: 50rem;
+        width: 40rem;
+        height: 40rem;
       }
     }
   `}
@@ -65,44 +65,59 @@ export const IllustrationContainer = styled(motion.section)`
 
 export const PrincipalContainer = styled(motion.section)`
   ${({ theme }) => css`
-    flex: 1;
-    color: #eef4ed;
-
+    flex: 4;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    color: ${theme.colors.text.primary};
 
-    gap: 1rem;
-
-    & > span {
-      font-size: 3rem;
-      font-weight: 700;
-      display: none;
-    }
-
-    ${theme.breakAt(theme.breakpoints.md)} {
-      background: ${theme.colors.background.primary};
-      border-left: 1px solid ${theme.colors.background.secondary};
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      gap: 0.5rem;
       & > span {
-        font-size: 3rem;
+        font-size: 1.1rem;
         font-weight: 700;
-        display: block;
       }
+
+      & > strong {
+        font-size: 3rem;
+      }
+
+      ${theme.breakAt(theme.breakpoints.md)} {
+        justify-content: center;
+        align-items: flex-start;
+
+        & > strong {
+          font-size: 4rem;
+        }
+        & > span {
+          font-size: 1.5rem;
+          font-weight: 700;
+          display: block;
+        }
+      }
+    }
+    ${theme.breakAt(theme.breakpoints.md)} {
+      border-left: 1px solid ${theme.colors.background.primary};
+      justify-content: center;
+      flex: 1;
     }
   `}
 `;
 
 export const Button = styled(motion.button)`
   ${({ theme }) => css`
-    border: 2px solid ${theme.colors.background.secondary};
+    border: 2px solid ${theme.colors.background.primary};
     background: transparent;
+    width: 100%;
     color: ${theme.colors.text.primary};
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     border-radius: 0.9rem;
 
     display: flex;
@@ -113,8 +128,8 @@ export const Button = styled(motion.button)`
     transition: border 0.2s;
 
     & > img {
-      width: 3rem;
-      height: 3rem;
+      width: 2rem;
+      height: 2rem;
     }
 
     &:hover {
@@ -123,7 +138,7 @@ export const Button = styled(motion.button)`
     }
 
     ${theme.breakAt(theme.breakpoints.md)} {
-      border-color: ${theme.colors.background.secondary};
+      border-color: ${theme.colors.background.primary};
     }
   `}
 `;

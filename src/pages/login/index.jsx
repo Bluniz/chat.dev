@@ -33,15 +33,26 @@ export function Login() {
         exit={{ x: -300, opacity: 0 }}
         transition={{ delay: 0.5 }}
       >
-        <span>LogIn</span>
-        <Button
-          onClick={handleLogIn}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <img src={GoogleIcon} alt="google" />
-          Entrar com o google
-        </Button>
+        <div className="container">
+          <strong>Login</strong>
+          <span>Entre com sua conta para continuar.</span>
+          <Button
+            onClick={handleLogIn}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <img src={GoogleIcon} alt="google" />
+            Entrar com o google
+          </Button>
+          <Button
+            onClick={handleLogIn}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <img src={GoogleIcon} alt="google" />
+            Entrar com o google
+          </Button>
+        </div>
       </PrincipalContainer>
     </Container>
   );

@@ -3,6 +3,8 @@ export const darkTheme = {
     background: {
       primary: "#282a36",
       secondary: "#44475a",
+      gradient:
+        "linear-gradient(180deg, rgba(68, 71, 90, 0.81) 0%, #282A36 99.99%, rgba(255, 255, 255, 0) 100%);",
     },
     text: {
       primary: "#f8f8f2",
