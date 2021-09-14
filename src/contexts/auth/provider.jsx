@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { auth, database } from "services/firebase";
 
@@ -8,7 +8,7 @@ export function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const history = useHistory();
 
-  const logInWithGoogle = async () => {
+  const logInWithGoogle = useCallback(async () => {
     const provider = new auth.GoogleAuthProvider();
     const Auth = auth.getAuth();
 
@@ -26,8 +26,13 @@ export function AuthContextProvider({ children }) {
 
         const db = database.getDatabase();
 
-        await database.set(database.ref(db, "workspace"), {
+        await database.set(database.ref(db, `workspace/` + uid), {
           id: uid,
+          owner: {
+            name: displayName,
+            id: uid,
+            avatar: photoURL,
+          },
         });
 
         history.push(`/home`);
@@ -35,7 +40,15 @@ export function AuthContextProvider({ children }) {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [history]);
+
+  const logOut = useCallback(async () => {
+    const authRef = auth.getAuth();
+
+    auth.signOut(authRef).then(() => {
+      history.push("/");
+    });
+  }, [history]);
 
   useEffect(() => {
     const Auth = auth.getAuth();
@@ -63,7 +76,7 @@ export function AuthContextProvider({ children }) {
   }, [history]);
 
   return (
-    <AuthContext.Provider value={{ user, logInWithGoogle }}>
+    <AuthContext.Provider value={{ user, logInWithGoogle, logOut }}>
       {children}
     </AuthContext.Provider>
   );
