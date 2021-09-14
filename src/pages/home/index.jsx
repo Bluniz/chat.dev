@@ -1,12 +1,12 @@
 import { UseAuth } from "contexts/auth/hook";
 import MessageIcon from "assets/message.svg";
 import { Container, Header, ProfileContainer, TitleContainer } from "./styles";
-import { CopyToClipboard } from "components/CopyToClipboard";
+import { UserCode } from "components/UserCode";
 // import { useEffect } from "react";
 // import { database } from "services/firebase";
 
 export function Home() {
-  const { user, logOut } = UseAuth();
+  const { user } = UseAuth();
 
   // useEffect(() => {
   //   const { getDatabase, ref, onValue } = database;
@@ -18,7 +18,6 @@ export function Home() {
   //     const data = snapshot.val();
   //     console.log(data);
   //   });
-  console.log(user);
   // }, []);
 
   return (
@@ -35,7 +34,7 @@ export function Home() {
         </TitleContainer>
 
         <ProfileContainer>
-          <CopyToClipboard code={user?.id} onClick={logOut} />
+          <UserCode code={user?.id} />
           <img
             src={user?.avatar}
             alt="userphoto"

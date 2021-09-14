@@ -14,10 +14,17 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
+  background: ${({ theme }) => theme.colors.background.gradient}
 }
 
 button {
   cursor: pointer;
 }
+
+
+
+
+
+
 
 `;
