@@ -1,9 +1,70 @@
 import { UseAuth } from "contexts/auth/hook";
 import MessageIcon from "assets/message.svg";
-import { Container, Header, ProfileContainer, TitleContainer } from "./styles";
+import {
+  Container,
+  Header,
+  ProfileContainer,
+  TitleContainer,
+  MessagesContainer,
+} from "./styles";
 import { UserCode } from "components/UserCode";
+import { UserBox } from "./components/userBox";
 // import { useEffect } from "react";
 // import { database } from "services/firebase";
+
+const fakeData = [
+  {
+    name: "Fulano 1",
+    id: "dsa222dsadsdsa",
+    avatar:
+      "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
+    messages: [
+      {
+        content: "fulano fez isso",
+        author: {
+          name: "hiririr",
+          avatar:
+            "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
+          id: "hauewhaeuhea",
+        },
+      },
+    ],
+  },
+  {
+    name: "Fulano 1",
+    id: "dsadsadsdsdsdsadsasdaa",
+    avatar:
+      "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
+    messages: [
+      {
+        content: "fulano fez isso",
+        author: {
+          name: "hiririr",
+          avatar:
+            "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
+          id: "hauewhaeuhea",
+        },
+      },
+    ],
+  },
+  {
+    name: "Fulano 1",
+    id: "dsadsadsdsa",
+    avatar:
+      "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
+    messages: [
+      {
+        content: "fulano fez isso",
+        author: {
+          name: "hiririr",
+          avatar:
+            "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
+          id: "hauewhaeuhea",
+        },
+      },
+    ],
+  },
+];
 
 export function Home() {
   const { user } = UseAuth();
@@ -46,6 +107,18 @@ export function Home() {
           />
         </ProfileContainer>
       </Header>
+      <MessagesContainer>
+        {fakeData.map((data) => {
+          return (
+            <UserBox
+              name={data.name}
+              avatar={data.avatar}
+              lastMessage={data.messages[data.messages.length - 1].content}
+              key="data.id"
+            />
+          );
+        })}
+      </MessagesContainer>
     </Container>
   );
 }

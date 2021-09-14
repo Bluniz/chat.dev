@@ -42,3 +42,11 @@ export const ProfileContainer = styled.div`
     }
   `}
 `;
+
+export const MessagesContainer = styled.aside`
+  ${({ theme }) => css`
+    width: 40rem;
+    border-right: 1px solid ${theme.colors.background.primary};
+    height: 100%;
+  `}
+`;
