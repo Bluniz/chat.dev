@@ -7,9 +7,20 @@ import {
 } from "./styles";
 import GoogleIcon from "assets/google.svg";
 import ChatImg from "assets/chat.svg";
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 export function Login() {
-  const { logInWithGoogle } = UseAuth();
+  const { logInWithGoogle, user } = UseAuth();
+  const history = useHistory();
+
+  useEffect(() => {
+    console.log(user);
+
+    if (user) {
+      history.push("/home");
+    }
+  }, [user, history]);
 
   const handleLogIn = async () => {
     await logInWithGoogle();

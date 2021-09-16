@@ -15,5 +15,8 @@ export const darkTheme = {
     blue: {
       100: "#6272a4",
     },
+    red: {
+      200: "#ff5555",
+    },
   },
 };

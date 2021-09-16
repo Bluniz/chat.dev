@@ -11,7 +11,7 @@ import {
   ChatContainer,
 } from "./styles";
 import { UserCode } from "components/UserCode";
-import { UserBox } from "./components/userBox";
+import { UserBox } from "components/UserBox";
 import { Modal } from "components/Modal";
 import { useModal } from "hooks/useModal";
 import { useEffect, useState } from "react";
@@ -38,7 +38,7 @@ export function Home() {
 
       keys.forEach((key) => {
         if (data[key].ids.includes(user?.id)) {
-          if (data[key].user1.id === user.id) {
+          if (data[key].user1.id === user?.id) {
             newChats.push({ ...data[key], otherUserRef: "user2" });
           } else {
             newChats.push({ ...data[key], otherUserRef: "user1" });
@@ -91,16 +91,6 @@ export function Home() {
               />
             );
           })}
-          {/*  {fakeData.map((data) => {
-            return (
-              <UserBox
-                name={data.name}
-                avatar={data.avatar}
-                lastMessage={data.messages[data.messages.length - 1].content}
-                key={data.id}
-              />
-            );
-          })} */}
         </MessagesContainer>
         <ChatContainer>ata</ChatContainer>
       </Main>
@@ -109,7 +99,7 @@ export function Home() {
       </CommentButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>
-        Oi
+        {/* FAZER COMPONENT DE ADICIONAR DNOVO. */}
       </Modal>
     </Container>
   );
