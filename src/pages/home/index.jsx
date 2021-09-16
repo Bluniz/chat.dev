@@ -6,9 +6,12 @@ import {
   ProfileContainer,
   TitleContainer,
   MessagesContainer,
+  CommentButton,
 } from "./styles";
 import { UserCode } from "components/UserCode";
 import { UserBox } from "./components/userBox";
+import { Modal } from "components/Modal";
+import { useModal } from "hooks/useModal";
 // import { useEffect } from "react";
 // import { database } from "services/firebase";
 
@@ -69,6 +72,8 @@ const fakeData = [
 export function Home() {
   const { user } = UseAuth();
 
+  const { isOpen, onOpen, onClose } = useModal();
+
   // useEffect(() => {
   //   const { getDatabase, ref, onValue } = database;
   //   const db = getDatabase();
@@ -119,6 +124,14 @@ export function Home() {
           );
         })}
       </MessagesContainer>
+      <CommentButton onClick={onOpen}>
+        {" "}
+        <img src={MessageIcon} alt="messages" />
+      </CommentButton>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        Oi
+      </Modal>
     </Container>
   );
 }
