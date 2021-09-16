@@ -14,79 +14,41 @@ import { UserCode } from "components/UserCode";
 import { UserBox } from "./components/userBox";
 import { Modal } from "components/Modal";
 import { useModal } from "hooks/useModal";
-// import { useEffect } from "react";
-// import { database } from "services/firebase";
-
-const fakeData = [
-  {
-    name: "Fulano 1",
-    id: "dsa222dsadsdsa",
-    avatar:
-      "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
-    messages: [
-      {
-        content: "fulano fez isso",
-        author: {
-          name: "hiririr",
-          avatar:
-            "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
-          id: "hauewhaeuhea",
-        },
-      },
-    ],
-  },
-  {
-    name: "Fulano 1",
-    id: "dsadsadsdsdsdsadsasdaa",
-    avatar:
-      "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
-    messages: [
-      {
-        content: "fulano fez isso",
-        author: {
-          name: "hiririr",
-          avatar:
-            "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
-          id: "hauewhaeuhea",
-        },
-      },
-    ],
-  },
-  {
-    name: "Fulano 1",
-    id: "dsadsadsdsa",
-    avatar:
-      "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
-    messages: [
-      {
-        content: "fulano fez isso",
-        author: {
-          name: "hiririr",
-          avatar:
-            "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg",
-          id: "hauewhaeuhea",
-        },
-      },
-    ],
-  },
-];
+import { useEffect, useState } from "react";
+import { database } from "services/firebase";
 
 export function Home() {
-  const { user } = UseAuth();
+  const { user /* , logOut */ } = UseAuth();
 
+  const [chats, setChats] = useState([]);
   const { isOpen, onOpen, onClose } = useModal();
 
-  // useEffect(() => {
-  //   const { getDatabase, ref, onValue } = database;
-  //   const db = getDatabase();
+  useEffect(() => {
+    const { getDatabase, ref, onValue } = database;
+    const db = getDatabase();
 
-  //   const test = ref(db, `workspace/${user.id}/chats`);
+    const test = ref(db, `chats`);
 
-  //   onValue(test, (snapshot) => {
-  //     const data = snapshot.val();
-  //     console.log(data);
-  //   });
-  // }, []);
+    onValue(test, (snapshot) => {
+      const data = snapshot.val();
+
+      const keys = Object.keys(data);
+
+      let newChats = [];
+
+      keys.forEach((key) => {
+        if (data[key].ids.includes(user?.id)) {
+          if (data[key].user1.id === user.id) {
+            newChats.push({ ...data[key], otherUserRef: "user2" });
+          } else {
+            newChats.push({ ...data[key], otherUserRef: "user1" });
+          }
+        }
+      });
+
+      setChats(newChats);
+    });
+  }, [user]);
 
   return (
     <Container
@@ -96,7 +58,7 @@ export function Home() {
       transition={{ duration: 0.01 }}
     >
       <Header>
-        <TitleContainer>
+        <TitleContainer /* onClick={logOut} */>
           <img src={MessageIcon} alt="messages" />
           <h1>Mensagens</h1>
         </TitleContainer>
@@ -116,7 +78,20 @@ export function Home() {
       </Header>
       <Main>
         <MessagesContainer>
-          {fakeData.map((data) => {
+          {chats.map((chat, index) => {
+            const otherUser = chat[chat.otherUserRef];
+            const messagesSize = chat.messages.length - 1;
+
+            return (
+              <UserBox
+                key={index}
+                avatar={otherUser.avatar}
+                name={otherUser.name}
+                lastMessage={chat.messages[messagesSize].content}
+              />
+            );
+          })}
+          {/*  {fakeData.map((data) => {
             return (
               <UserBox
                 name={data.name}
@@ -125,7 +100,7 @@ export function Home() {
                 key={data.id}
               />
             );
-          })}
+          })} */}
         </MessagesContainer>
         <ChatContainer>ata</ChatContainer>
       </Main>
