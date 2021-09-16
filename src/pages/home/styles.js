@@ -48,7 +48,8 @@ export const MessagesContainer = styled.aside`
     width: 40rem;
     border-right: 1px solid ${theme.colors.background.primary};
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
+    //! FALTA CUSTOMIZAR O SCROLL
   `}
 `;
 

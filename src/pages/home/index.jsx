@@ -14,7 +14,6 @@ import { UserCode } from "components/UserCode";
 import { UserBox } from "./components/userBox";
 import { Modal } from "components/Modal";
 import { useModal } from "hooks/useModal";
-import { Tooltip } from "components/Tooltip";
 // import { useEffect } from "react";
 // import { database } from "services/firebase";
 
@@ -130,11 +129,9 @@ export function Home() {
         </MessagesContainer>
         <ChatContainer>ata</ChatContainer>
       </Main>
-      <Tooltip title="teste">
-        <CommentButton onClick={onOpen}>
-          <img src={MessageIcon} alt="messages" />
-        </CommentButton>
-      </Tooltip>
+      <CommentButton onClick={onOpen}>
+        <img src={MessageIcon} alt="messages" />
+      </CommentButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         Oi
