@@ -15,23 +15,26 @@ export const Container = styled.div`
 `;
 
 export const ModalBody = styled.div`
-  background-color: ${({ theme }) => theme.colors.text.primary};
+  background-color: ${({ theme }) => theme.colors.background.secondary};
   min-width: 10rem;
   display: flex;
   flex-direction: column;
+
+  border-radius: 0.8rem;
 `;
 
 export const ModalHeader = styled.header`
-  border: 1px solid red;
   width: 100%;
 
   display: flex;
   justify-content: flex-end;
+  padding: 0.5rem;
+  background-color: transparent;
 `;
 
 export const CloseButton = styled.button`
   border: 0;
-  padding: 0.5rem;
+  padding: 0.4rem;
   border-radius: 50%;
   background: transparent;
 
