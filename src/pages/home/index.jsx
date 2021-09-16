@@ -7,11 +7,14 @@ import {
   TitleContainer,
   MessagesContainer,
   CommentButton,
+  Main,
+  ChatContainer,
 } from "./styles";
 import { UserCode } from "components/UserCode";
 import { UserBox } from "./components/userBox";
 import { Modal } from "components/Modal";
 import { useModal } from "hooks/useModal";
+import { Tooltip } from "components/Tooltip";
 // import { useEffect } from "react";
 // import { database } from "services/firebase";
 
@@ -112,22 +115,26 @@ export function Home() {
           />
         </ProfileContainer>
       </Header>
-      <MessagesContainer>
-        {fakeData.map((data) => {
-          return (
-            <UserBox
-              name={data.name}
-              avatar={data.avatar}
-              lastMessage={data.messages[data.messages.length - 1].content}
-              key="data.id"
-            />
-          );
-        })}
-      </MessagesContainer>
-      <CommentButton onClick={onOpen}>
-        {" "}
-        <img src={MessageIcon} alt="messages" />
-      </CommentButton>
+      <Main>
+        <MessagesContainer>
+          {fakeData.map((data) => {
+            return (
+              <UserBox
+                name={data.name}
+                avatar={data.avatar}
+                lastMessage={data.messages[data.messages.length - 1].content}
+                key={data.id}
+              />
+            );
+          })}
+        </MessagesContainer>
+        <ChatContainer>ata</ChatContainer>
+      </Main>
+      <Tooltip title="teste">
+        <CommentButton onClick={onOpen}>
+          <img src={MessageIcon} alt="messages" />
+        </CommentButton>
+      </Tooltip>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         Oi

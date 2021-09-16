@@ -48,6 +48,7 @@ export const MessagesContainer = styled.aside`
     width: 40rem;
     border-right: 1px solid ${theme.colors.background.primary};
     height: 100%;
+    overflow: scroll;
   `}
 `;
 
@@ -75,4 +76,17 @@ export const CommentButton = styled.button`
   &:hover {
     filter: brightness(0.8);
   }
+`;
+
+export const Main = styled.main`
+  display: flex;
+  width: 100%;
+  height: 100%;
+`;
+
+export const ChatContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 `;
