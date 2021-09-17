@@ -16,6 +16,7 @@ import { Modal } from "components/Modal";
 import { useModal } from "hooks/useModal";
 import { useEffect, useState } from "react";
 import { database } from "services/firebase";
+import { CreateChat } from "components/createChat";
 
 export function Home() {
   const { user /* , logOut */ } = UseAuth();
@@ -99,7 +100,7 @@ export function Home() {
       </CommentButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>
-        {/* FAZER COMPONENT DE ADICIONAR DNOVO. */}
+        <CreateChat />
       </Modal>
     </Container>
   );

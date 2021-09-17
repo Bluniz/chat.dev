@@ -15,8 +15,6 @@ export function Login() {
   const history = useHistory();
 
   useEffect(() => {
-    console.log(user);
-
     if (user) {
       history.push("/home");
     }
