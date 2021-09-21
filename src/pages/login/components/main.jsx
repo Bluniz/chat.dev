@@ -1,4 +1,4 @@
-import { PrincipalContainer, Button } from "./styles";
+import { PrincipalContainer, Button } from "../styles";
 import GoogleIcon from "assets/google.svg";
 
 export const Main = ({ handleLogIn }) => {

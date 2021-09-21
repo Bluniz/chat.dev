@@ -1,4 +1,4 @@
-import { IllustrationContainer } from "./styles";
+import { IllustrationContainer } from "../styles";
 import ChatImg from "assets/chat.svg";
 
 export const Illustration = () => {
