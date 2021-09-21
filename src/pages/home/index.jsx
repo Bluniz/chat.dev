@@ -9,6 +9,7 @@ import {
   CommentButton,
   Main,
   ChatContainer,
+  LoaderContainer,
 } from "./styles";
 import { UserCode } from "components/UserCode";
 import { UserBox } from "components/UserBox";
@@ -17,6 +18,7 @@ import { useModal } from "hooks/useModal";
 import { CreateChat } from "components/createChat";
 import { Image } from "components/image";
 import { useChats } from "contexts/chats/hook";
+import { Spinner } from "components/spinner";
 
 export function Home() {
   const { user /* , logOut */ } = UseAuth();
@@ -44,19 +46,27 @@ export function Home() {
       </Header>
       <Main>
         <MessagesContainer>
-          {chats.map((chat, index) => {
-            const otherUser = chat[chat.otherUserRef];
-            const messagesSize = chat.messages.length - 1;
+          {loading ? (
+            <LoaderContainer>
+              <Spinner isActive={loading} />
+            </LoaderContainer>
+          ) : (
+            <>
+              {chats.map((chat, index) => {
+                const otherUser = chat[chat.otherUserRef];
+                const messagesSize = chat.messages.length - 1;
 
-            return (
-              <UserBox
-                key={index}
-                avatar={otherUser.avatar}
-                name={otherUser.name}
-                lastMessage={chat.messages[messagesSize].content}
-              />
-            );
-          })}
+                return (
+                  <UserBox
+                    key={index}
+                    avatar={otherUser.avatar}
+                    name={otherUser.name}
+                    lastMessage={chat.messages[messagesSize].content}
+                  />
+                );
+              })}{" "}
+            </>
+          )}
         </MessagesContainer>
         <ChatContainer>ata</ChatContainer>
       </Main>
