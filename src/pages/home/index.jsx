@@ -17,6 +17,7 @@ import { useModal } from "hooks/useModal";
 import { useEffect, useState } from "react";
 import { database } from "services/firebase";
 import { CreateChat } from "components/createChat";
+import { Image } from "components/image";
 
 export function Home() {
   const { user /* , logOut */ } = UseAuth();
@@ -60,21 +61,13 @@ export function Home() {
     >
       <Header>
         <TitleContainer /* onClick={logOut} */>
-          <img src={MessageIcon} alt="messages" />
+          <Image src={MessageIcon} alt="messages" />
           <h1>Mensagens</h1>
         </TitleContainer>
 
         <ProfileContainer>
           <UserCode code={user?.id} />
-          <img
-            src={user?.avatar}
-            alt="userphoto"
-            onError={(event) => {
-              event.target.src =
-                "https://i.pinimg.com/originals/23/a0/6d/23a06d60a48483d31ddb71aa353f10c0.jpg";
-              event.onerror = null;
-            }}
-          />
+          <Image src={user?.avatar} alt="userphoto" />
         </ProfileContainer>
       </Header>
       <Main>
@@ -96,7 +89,7 @@ export function Home() {
         <ChatContainer>ata</ChatContainer>
       </Main>
       <CommentButton onClick={onOpen}>
-        <img src={MessageIcon} alt="messages" />
+        <Image src={MessageIcon} alt="messages" />
       </CommentButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>
