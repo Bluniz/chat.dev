@@ -14,43 +14,15 @@ import { UserCode } from "components/UserCode";
 import { UserBox } from "components/UserBox";
 import { Modal } from "components/Modal";
 import { useModal } from "hooks/useModal";
-import { useEffect, useState } from "react";
-import { database } from "services/firebase";
 import { CreateChat } from "components/createChat";
 import { Image } from "components/image";
+import { useChats } from "contexts/chats/hook";
 
 export function Home() {
   const { user /* , logOut */ } = UseAuth();
+  const { chats, loading } = useChats();
 
-  const [chats, setChats] = useState([]);
   const { isOpen, onOpen, onClose } = useModal();
-
-  useEffect(() => {
-    const { getDatabase, ref, onValue } = database;
-    const db = getDatabase();
-
-    const test = ref(db, `chats`);
-
-    onValue(test, (snapshot) => {
-      const data = snapshot.val();
-
-      const keys = Object.keys(data);
-
-      let newChats = [];
-
-      keys.forEach((key) => {
-        if (data[key].ids.includes(user?.id)) {
-          if (data[key].user1.id === user?.id) {
-            newChats.push({ ...data[key], otherUserRef: "user2" });
-          } else {
-            newChats.push({ ...data[key], otherUserRef: "user1" });
-          }
-        }
-      });
-
-      setChats(newChats);
-    });
-  }, [user]);
 
   return (
     <Container
