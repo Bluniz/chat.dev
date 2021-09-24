@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { auth, database } from "services/firebase";
+import { toastController } from "components/toast";
 
 export const AuthContext = createContext(null);
 
@@ -36,9 +37,10 @@ export function AuthContextProvider({ children }) {
         });
 
         history.push(`/home`);
+        toastController.success("Bem vindo");
       }
     } catch (error) {
-      console.log(error);
+      toastController.error(error);
     }
   }, [history]);
 
@@ -57,7 +59,7 @@ export function AuthContextProvider({ children }) {
         const { displayName, photoURL, uid } = user;
 
         if (!displayName || !photoURL) {
-          throw new Error("Missing information from Google Account");
+          toastController.error("Missing information from Google Account");
         }
         setUser({
           id: uid,

@@ -27,7 +27,7 @@ export function Home() {
       </CommentButton>
 
       <Modal isOpen={isOpen} onClose={onClose}>
-        <CreateChat />
+        <CreateChat onClose={onClose} />
       </Modal>
     </Container>
   );

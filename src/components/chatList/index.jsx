@@ -1,5 +1,5 @@
 import { Spinner } from "components/spinner";
-import { UserBox } from "components/UserBox";
+import { UserBox } from "components/userBox";
 import { useChats } from "contexts/chats/hook";
 import { MessagesContainer, LoaderContainer } from "./styles";
 
