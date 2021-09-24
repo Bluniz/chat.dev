@@ -11,6 +11,7 @@ export const ChatContextProvider = ({ children }) => {
 
   const [chats, setChats] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeChat, setActiveChat] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -106,8 +107,23 @@ export const ChatContextProvider = ({ children }) => {
     [user, _verifyUsersChats]
   );
 
+  const handleSetActiveChat = useCallback(
+    (index) => {
+      setActiveChat(chats[index]);
+    },
+    [chats]
+  );
+
   return (
-    <ChatsContext.Provider value={{ chats, loading, handleCreateChat }}>
+    <ChatsContext.Provider
+      value={{
+        chats,
+        loading,
+        activeChat,
+        handleCreateChat,
+        handleSetActiveChat,
+      }}
+    >
       {children}
     </ChatsContext.Provider>
   );

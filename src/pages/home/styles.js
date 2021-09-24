@@ -49,3 +49,23 @@ export const ChatContainer = styled.div`
   justify-content: center;
   flex: 1;
 `;
+
+export const MainChatContainer = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: ${theme.colors.text.primary};
+
+    & > svg {
+      width: 45rem;
+      height: 45rem;
+    }
+    & > span {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 0.2rem;
+      max-width: 45 rem;
+    }
+  `}
+`;
