@@ -19,8 +19,9 @@ export const TitleContainer = styled.div`
 `;
 
 export const ProfileContainer = styled.div`
-  ${({ theme }) => css`
+  ${({ theme, isMenuOpen }) => css`
     display: flex;
+
     align-items: center;
     gap: 1.8rem;
 
@@ -28,6 +29,7 @@ export const ProfileContainer = styled.div`
       border-radius: 0.8rem;
       width: 5rem;
       height: 5rem;
+      cursor: pointer;
     }
   `}
 `;

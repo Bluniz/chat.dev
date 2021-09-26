@@ -1,5 +1,6 @@
-import MessageIcon from "assets/message.svg";
+import { useState } from "react";
 import { Image } from "components/image";
+import { Menu } from "components/menu";
 import { UserCode } from "components/userCode";
 import { UseAuth } from "contexts/auth/hook";
 import {
@@ -7,9 +8,15 @@ import {
   ProfileContainer,
   TitleContainer,
 } from "./styles";
+import MessageIcon from "assets/message.svg";
 
 export const Header = () => {
+  const [openMenu, setOpenMenu] = useState(false);
   const { user } = UseAuth();
+
+  function handleTogleMenu() {
+    setOpenMenu((state) => !state);
+  }
 
   return (
     <StyledHeader>
@@ -20,7 +27,8 @@ export const Header = () => {
 
       <ProfileContainer>
         <UserCode code={user?.id} />
-        <Image src={user?.avatar} alt="userphoto" />
+        {openMenu && <Menu />}
+        <Image src={user?.avatar} alt="userphoto" onClick={handleTogleMenu} />
       </ProfileContainer>
     </StyledHeader>
   );
