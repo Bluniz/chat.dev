@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     cursor: pointer;
     padding: 1.5rem;
     gap: 2rem;
+    cursor: pointer;
 
     & > img {
       width: 5rem;

@@ -14,6 +14,7 @@ import { Header } from "components/header";
 import { ChatList } from "components/chatList";
 import { useChats } from "contexts/chats/hook";
 import { ReactComponent as BeginChatImg } from "assets/begin-chat.svg";
+import { ActiveChat } from "components/activeChat";
 
 export function Home() {
   const { isOpen, onOpen, onClose } = useModal();
@@ -32,7 +33,9 @@ export function Home() {
       <Main>
         <ChatList />
         <ChatContainer>
-          {!activeChat && (
+          {activeChat ? (
+            <ActiveChat />
+          ) : (
             <MainChatContainer>
               <BeginChatImg />
               <span>

@@ -1,9 +1,9 @@
 import { Image } from "components/image/index.jsx";
 import { Wrapper, MessageContainer } from "./styles.js";
 
-export function UserBox({ avatar, name, lastMessage }) {
+export function UserBox({ avatar, name, lastMessage, onClick }) {
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
       <Image src={avatar} alt="profile-IMG" />
       <MessageContainer>
         <strong>{name}</strong>

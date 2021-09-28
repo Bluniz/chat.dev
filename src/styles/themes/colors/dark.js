@@ -10,6 +10,7 @@ export const darkTheme = {
       primary: "#f8f8f2",
     },
     green: {
+      400: "#2CA64C",
       300: "#50fa7b",
     },
     blue: {

@@ -15,6 +15,7 @@ export const TitleContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1.8rem;
+    cursor: pointer;
   `}
 `;
 

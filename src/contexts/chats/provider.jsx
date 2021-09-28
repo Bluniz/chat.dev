@@ -114,6 +114,10 @@ export const ChatContextProvider = ({ children }) => {
     [chats]
   );
 
+  const handleResetActiveChat = useCallback(() => {
+    setActiveChat(null);
+  }, []);
+
   return (
     <ChatsContext.Provider
       value={{
@@ -122,6 +126,7 @@ export const ChatContextProvider = ({ children }) => {
         activeChat,
         handleCreateChat,
         handleSetActiveChat,
+        handleResetActiveChat,
       }}
     >
       {children}

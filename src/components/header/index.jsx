@@ -9,10 +9,12 @@ import {
   TitleContainer,
 } from "./styles";
 import MessageIcon from "assets/message.svg";
+import { useChats } from "contexts/chats/hook";
 
 export const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const { user } = UseAuth();
+  const { handleResetActiveChat } = useChats();
 
   function handleTogleMenu() {
     setOpenMenu((state) => !state);
@@ -20,7 +22,7 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <TitleContainer>
+      <TitleContainer onClick={handleResetActiveChat}>
         <Image src={MessageIcon} alt="messages" />
         <h1>Mensagens</h1>
       </TitleContainer>
