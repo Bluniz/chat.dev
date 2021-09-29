@@ -1,15 +1,7 @@
-import MessageIcon from "assets/message.svg";
-import {
-  Container,
-  CommentButton,
-  Main,
-  ChatContainer,
-  MainChatContainer,
-} from "./styles";
+import { Container, Main, ChatContainer, MainChatContainer } from "./styles";
 import { Modal } from "components/Modal";
 import { useModal } from "hooks/useModal";
 import { CreateChat } from "components/createChat";
-import { Image } from "components/image";
 import { Header } from "components/header";
 import { ChatList } from "components/chatList";
 import { useChats } from "contexts/chats/hook";
@@ -20,8 +12,6 @@ export function Home() {
   const { isOpen, onOpen, onClose } = useModal();
   const { activeChat } = useChats();
 
-  //TODO CRIAR COMPONENTE DA MAIN
-
   return (
     <Container
       initial={{ opacity: 0 }}
@@ -31,7 +21,7 @@ export function Home() {
     >
       <Header />
       <Main>
-        <ChatList />
+        <ChatList onOpenCreateChatModal={onOpen} />
         <ChatContainer>
           {activeChat ? (
             <ActiveChat />

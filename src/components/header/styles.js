@@ -16,6 +16,10 @@ export const TitleContainer = styled.div`
     align-items: center;
     gap: 1.8rem;
     cursor: pointer;
+
+    & > svg {
+      fill: ${theme.colors.green[300]};
+    }
   `}
 `;
 
