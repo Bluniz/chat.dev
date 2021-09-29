@@ -6,7 +6,6 @@ export const MessagesContainer = styled.aside`
     border-right: 1px solid ${theme.colors.background.primary};
     height: 100%;
     overflow-y: scroll;
-    //! FALTA CUSTOMIZAR O SCROLL
   `}
 `;
 

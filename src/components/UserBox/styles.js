@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
-  ${({ theme }) => css`
+  ${({ theme, active }) => css`
     display: flex;
     align-items: center;
     border-bottom: 1px solid ${({ theme }) => theme.colors.background.primary};
@@ -10,6 +10,11 @@ export const Wrapper = styled.div`
     gap: 2rem;
     cursor: pointer;
 
+    background: ${active ? theme.colors.green[400] : "transparent"};
+    color: ${active
+      ? theme.colors.background.primary
+      : theme.colors.text.primary};
+
     & > img {
       width: 5rem;
       height: 5rem;
@@ -17,7 +22,9 @@ export const Wrapper = styled.div`
     }
 
     &:hover {
-      background: ${theme.colors.background.secondary};
+      background: ${active
+        ? theme.colors.green[400]
+        : theme.colors.background.secondary};
     }
   `}
 `;
@@ -25,7 +32,6 @@ export const Wrapper = styled.div`
 export const MessageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  color: ${({ theme }) => theme.colors.text.primary};
   gap: 0.3rem;
 
   & > strong {

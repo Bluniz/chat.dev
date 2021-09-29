@@ -21,23 +21,24 @@ export const ChatContextProvider = ({ children }) => {
     const chatsRef = ref(db, `chats`);
 
     const unsubscribe = onValue(chatsRef, (snapshot) => {
-      const data = snapshot.val();
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        const keys = Object.keys(data);
 
-      const keys = Object.keys(data);
+        let newChats = [];
 
-      let newChats = [];
-
-      keys.forEach((key) => {
-        if (data[key].ids.includes(user?.id)) {
-          if (data[key].user1.id === user?.id) {
-            newChats.push({ ...data[key], otherUserRef: "user2" });
-          } else {
-            newChats.push({ ...data[key], otherUserRef: "user1" });
+        keys.forEach((key) => {
+          if (data[key].ids.includes(user?.id)) {
+            if (data[key].user1.id === user?.id) {
+              newChats.push({ ...data[key], otherUserRef: "user2" });
+            } else {
+              newChats.push({ ...data[key], otherUserRef: "user1" });
+            }
           }
-        }
-      });
+        });
 
-      setChats(newChats);
+        setChats(newChats);
+      }
       setLoading(false);
     });
 
@@ -82,6 +83,7 @@ export const ChatContextProvider = ({ children }) => {
         if (!chatIsExists) {
           const key = Math.floor(Math.random() * 256);
           await database.set(database.ref(db, `chats/${key}`), {
+            id: key,
             ids: [user.id, otherUser.id],
             user1: user,
             user2: {
@@ -107,16 +109,48 @@ export const ChatContextProvider = ({ children }) => {
     [user, _verifyUsersChats]
   );
 
-  const handleSetActiveChat = useCallback(
-    (index) => {
-      setActiveChat(chats[index]);
-    },
-    [chats]
-  );
+  const handleSetActiveChat = useCallback((id) => {
+    const { getDatabase, ref, onValue } = database;
+    const db = getDatabase();
+    const chatsRef = ref(db, `chats/${id}`);
+
+    onValue(chatsRef, (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        setActiveChat(data);
+      }
+    });
+
+    //setActiveChat(chats[index]);
+  }, []);
 
   const handleResetActiveChat = useCallback(() => {
     setActiveChat(null);
   }, []);
+
+  const handleAddMessage = useCallback(
+    async (message) => {
+      try {
+        const db = database.getDatabase();
+
+        await database.set(database.ref(db, `chats/${activeChat.id}`), {
+          ...activeChat,
+          messages: [
+            ...activeChat.messages,
+            {
+              author: user,
+              content: message,
+            },
+          ],
+        });
+      } catch (error) {
+        console.log("deu ruim");
+
+        console.log(error);
+      }
+    },
+    [user, activeChat]
+  );
 
   return (
     <ChatsContext.Provider
@@ -127,6 +161,7 @@ export const ChatContextProvider = ({ children }) => {
         handleCreateChat,
         handleSetActiveChat,
         handleResetActiveChat,
+        handleAddMessage,
       }}
     >
       {children}
