@@ -13,12 +13,7 @@ export function Home() {
   const { activeChat } = useChats();
 
   return (
-    <Container
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.01 }}
-    >
+    <Container>
       <Header />
       <Main>
         <ChatList onOpenCreateChatModal={onOpen} />

@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
-import { motion } from "framer-motion";
 
-export const Container = styled(motion.main)`
+export const Container = styled.main`
   ${({ theme }) => css`
     width: 100vw;
     height: 100vh;
@@ -19,7 +18,7 @@ export const Container = styled(motion.main)`
   `}
 `;
 
-export const IllustrationContainer = styled(motion.section)`
+export const IllustrationContainer = styled.section`
   ${({ theme }) => css`
     flex: 3;
 
@@ -63,7 +62,7 @@ export const IllustrationContainer = styled(motion.section)`
   `}
 `;
 
-export const PrincipalContainer = styled(motion.section)`
+export const PrincipalContainer = styled.section`
   ${({ theme }) => css`
     flex: 4;
     display: flex;
@@ -108,7 +107,7 @@ export const PrincipalContainer = styled(motion.section)`
   `}
 `;
 
-export const Button = styled(motion.button)`
+export const Button = styled.button`
   ${({ theme }) => css`
     border: 2px solid ${theme.colors.background.primary};
     background: transparent;
