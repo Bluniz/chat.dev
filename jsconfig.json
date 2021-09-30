@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "*": ["src/*"],
-      "contexts/*": ["src/contexts/*"]
-    }
-  }
+    "baseUrl": "src"
+  },
+  "include": ["/*.js", "/*.jsx"],
+  "exclude": ["node_modules"]
 }
