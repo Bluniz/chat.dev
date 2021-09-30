@@ -7,9 +7,11 @@ export const AuthContext = createContext(null);
 
 export function AuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   const logInWithGoogle = useCallback(async () => {
+    setLoading(true);
     const provider = new auth.GoogleAuthProvider();
     const Auth = auth.getAuth();
 
@@ -41,6 +43,8 @@ export function AuthContextProvider({ children }) {
       }
     } catch (error) {
       toastController.error(error);
+    } finally {
+      setLoading(false);
     }
   }, [history]);
 
@@ -53,6 +57,7 @@ export function AuthContextProvider({ children }) {
   }, [history]);
 
   useEffect(() => {
+    setLoading(true);
     const Auth = auth.getAuth();
     const unsubscribe = auth.onAuthStateChanged(Auth, (user) => {
       if (user) {
@@ -71,14 +76,17 @@ export function AuthContextProvider({ children }) {
       } else {
         history.push("/");
       }
+
+      setLoading(false);
     });
+
     return () => {
       unsubscribe();
     };
   }, [history]);
 
   return (
-    <AuthContext.Provider value={{ user, logInWithGoogle, logOut }}>
+    <AuthContext.Provider value={{ user, logInWithGoogle, logOut, loading }}>
       {children}
     </AuthContext.Provider>
   );

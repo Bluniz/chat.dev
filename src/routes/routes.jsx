@@ -9,7 +9,7 @@ import { Container } from "./styles";
 export function Routes() {
   const location = useLocation();
   const history = useHistory();
-  const { user } = UseAuth();
+  const { user, loading } = UseAuth();
 
   useEffect(() => {
     if (user) {
@@ -25,7 +25,7 @@ export function Routes() {
         <Route exact path="/" component={Page.Login} />
         <Route exact path="/home" component={Page.Home} />
       </Switch>
-      {!user && (
+      {loading && (
         <Container>
           <Spinner isActive />
         </Container>
