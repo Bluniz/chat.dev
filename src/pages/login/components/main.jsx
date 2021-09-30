@@ -7,6 +7,7 @@ export const Main = ({ handleLogIn }) => {
       <div className="container">
         <strong>Login</strong>
         <span>Entre com sua conta para continuar.</span>
+        <br />
         <Button onClick={handleLogIn}>
           <img src={GoogleIcon} alt="google" />
           Entrar com o google
