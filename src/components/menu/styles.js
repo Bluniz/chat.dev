@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Button = styled.button`
   ${({ theme }) => css`
     width: 100%;
-    background: ${theme.colors.background.primary};
+    background: transparent;
     border: 1px solid ${theme.colors.green[300]};
     color: ${theme.colors.text.primary};
     font-weight: bold;

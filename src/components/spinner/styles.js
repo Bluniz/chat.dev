@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const Loader = styled.div`
   ${({ theme }) => css`
-    border: 0.6rem solid ${theme.colors.background.primary}; /* Light grey */
+    border: 0.6rem solid ${theme.colors.background.gradient}; /* Light grey */
     border-top: 0.6rem solid ${theme.colors.green[300]}; /* Blue */
     border-radius: 50%;
     width: 4rem;

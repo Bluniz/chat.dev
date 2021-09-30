@@ -11,9 +11,7 @@ export const Wrapper = styled.div`
     cursor: pointer;
 
     background: ${active ? theme.colors.green[400] : "transparent"};
-    color: ${active
-      ? theme.colors.background.primary
-      : theme.colors.text.primary};
+    color: ${active ? theme.colors.text.secondary : theme.colors.text.primary};
 
     & > img {
       width: 5rem;
@@ -33,6 +31,8 @@ export const MessageContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
   & > strong {
     font-size: 1.7rem;
@@ -40,5 +40,8 @@ export const MessageContainer = styled.div`
 
   & > span {
     font-size: 1.4rem;
+    max-width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;

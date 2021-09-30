@@ -8,6 +8,7 @@ export const Container = styled.main`
 `;
 
 export const Wrapper = styled.div`
+  min-height: 50rem;
   max-height: 50rem;
   overflow: scroll;
 `;
@@ -32,13 +33,19 @@ export const Message = styled.div`
   gap: 0.5rem;
 
   min-width: 25rem;
-  width: 25rem;
+  max-width: 40rem;
+
   background: ${({ theme }) => theme.colors.green[400]};
+
+  & > span {
+    overflow: hidden;
+    overflow-wrap: break-word;
+  }
 `;
 
 export const MessageUserName = styled.span`
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.secondary};
 `;
 
 export const UserMessage = styled(Message)`

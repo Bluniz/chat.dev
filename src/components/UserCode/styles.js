@@ -27,9 +27,10 @@ export const ImgContainer = styled.div`
     flex: 1;
     border-radius: 0.8rem 0 0 0.8rem;
 
-    & > img {
+    & > svg {
       width: 2rem;
       height: 2rem;
+      stroke: ${({ theme }) => theme.colors.text.secondary};
     }
   `}
 `;

@@ -39,7 +39,7 @@ export const CommentButton = styled.button`
     background: ${theme.colors.green[400]};
     border: 0;
 
-    color: ${theme.colors.text.primary};
+    color: ${theme.colors.text.secondary};
 
     width: 100%;
     height: 100%;
@@ -56,7 +56,7 @@ export const CommentButton = styled.button`
     & > svg {
       width: 3.5rem;
       height: 3.5rem;
-      fill: ${theme.colors.text.primary};
+      fill: ${theme.colors.text.secondary};
     }
 
     & > span {

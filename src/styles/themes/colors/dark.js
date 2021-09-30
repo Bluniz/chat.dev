@@ -1,17 +1,17 @@
 export const darkTheme = {
   colors: {
     background: {
-      primary: "#282a36",
+      primary: "#393E46",
       secondary: "#44475a",
-      gradient:
-        "linear-gradient(180deg, rgba(68, 71, 90, 0.81) 0%, #282A36 99.99%, rgba(255, 255, 255, 0) 100%);",
+      gradient: "#222831",
     },
     text: {
       primary: "#f8f8f2",
+      secondary: "#222831",
     },
     green: {
-      400: "#2CA64C",
-      300: "#50fa7b",
+      400: "#FFD369",
+      300: "#FFD369",
     },
     blue: {
       100: "#6272a4",
