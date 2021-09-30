@@ -1,5 +1,5 @@
 import { Routes } from "./routes/routes";
-import { AppContextProvider } from "contexts/appProvider";
+import { AppContextProvider } from "./contexts/appProvider";
 import { GlobalStyles } from "styles/global";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, darkTheme } from "styles/themes";
