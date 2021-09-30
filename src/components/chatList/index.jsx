@@ -1,6 +1,6 @@
-import { Spinner } from "components/spinner";
-import { UserBox } from "components/userBox";
-import { useChats } from "contexts/chats/hook";
+import { Spinner } from "../spinner";
+import { UserBox } from "../userBox";
+import { useChats } from "../../contexts/chats/hook";
 import {
   MessagesContainer,
   LoaderContainer,
@@ -8,7 +8,7 @@ import {
   Wrapper,
   CommentButton,
 } from "./styles";
-import { ReactComponent as MessageIcon } from "assets/message.svg";
+import { ReactComponent as MessageIcon } from "../../assets/message.svg";
 
 export const ChatList = ({ onOpenCreateChatModal }) => {
   const { chats, loading, handleSetActiveChat, activeChat } = useChats();

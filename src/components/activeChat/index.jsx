@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { UseAuth } from "contexts/auth/hook";
-import { useChats } from "contexts/chats/hook";
+import { UseAuth } from "../../contexts/auth/hook";
+import { useChats } from "../../contexts/chats/hook";
 import {
   Container,
   UserMessage,
@@ -12,7 +12,7 @@ import {
   MessageInput,
   Wrapper,
 } from "./styles";
-import { ReactComponent as SendImg } from "assets/send.svg";
+import { ReactComponent as SendImg } from "../../assets/send.svg";
 
 export function ActiveChat() {
   const { user } = UseAuth();

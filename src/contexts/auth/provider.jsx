@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
-import { auth, database } from "services/firebase";
-import { toastController } from "components/toast";
+import { auth, database } from "../../services/firebase";
+import { toastController } from "../../components/toast";
 
 export const AuthContext = createContext(null);
 

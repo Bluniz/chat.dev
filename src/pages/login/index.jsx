@@ -1,4 +1,4 @@
-import { UseAuth } from "contexts/auth/hook";
+import { UseAuth } from "../../contexts/auth/hook";
 import { Container } from "./styles";
 import { Illustration } from "./components/illustration";
 import { Main } from "./components/main";

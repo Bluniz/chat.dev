@@ -1,8 +1,8 @@
-import { UseAuth } from "contexts/auth/hook";
+import { UseAuth } from "../auth/hook";
 import { createContext, useState, useEffect, useCallback } from "react";
-import { database } from "services/firebase";
-import { getUser } from "services/users";
-import { toastController } from "components/toast";
+import { database } from "../../services/firebase";
+import { getUser } from "../../services/users";
+import { toastController } from "../../components/toast";
 
 export const ChatsContext = createContext({});
 

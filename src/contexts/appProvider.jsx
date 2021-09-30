@@ -1,4 +1,4 @@
-import { combineContexts } from "utils";
+import { combineContexts } from "../utils";
 import { AuthContextProvider } from "./auth/provider";
 import { ChatContextProvider } from "./chats/provider";
 const providers = [AuthContextProvider, ChatContextProvider];

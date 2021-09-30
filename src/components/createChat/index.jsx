@@ -1,4 +1,4 @@
-import { useChats } from "contexts/chats/hook";
+import { useChats } from "../../contexts/chats/hook";
 import { useState } from "react";
 import { Container, Form, Input } from "./styles";
 

@@ -5,7 +5,7 @@ import {
   CloseButton,
   ModalContent,
 } from "./styles";
-import { ReactComponent as DeleteIcon } from "assets/x.svg";
+import { ReactComponent as DeleteIcon } from "../../assets/x.svg";
 
 export function Modal({ children, onClose, isOpen }) {
   return (

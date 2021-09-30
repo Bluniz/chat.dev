@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { Image } from "components/image";
-import { Menu } from "components/menu";
-import { UserCode } from "components/userCode";
-import { UseAuth } from "contexts/auth/hook";
+import { Image } from "../image";
+import { Menu } from "../menu";
+import { UserCode } from "../userCode";
+import { UseAuth } from "../../contexts/auth/hook";
 import {
   Header as StyledHeader,
   ProfileContainer,
   TitleContainer,
 } from "./styles";
-import { ReactComponent as MessageIcon } from "assets/message.svg";
-import { useChats } from "contexts/chats/hook";
+import { ReactComponent as MessageIcon } from "../../assets/message.svg";
+import { useChats } from "../../contexts/chats/hook";
 
 export const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);

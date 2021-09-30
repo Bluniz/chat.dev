@@ -1,4 +1,4 @@
-import { UseAuth } from "contexts/auth/hook";
+import { UseAuth } from "../../contexts/auth/hook";
 import { Container, Button } from "./styles";
 
 export function Menu() {

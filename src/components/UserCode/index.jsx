@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, ContentContainer, ImgContainer } from "./styles";
-import CopyImg from "assets/copy.svg";
+import CopyImg from "../../assets/copy.svg";
 
 export function UserCode({ code }) {
   const [copied, setCopied] = useState(false);

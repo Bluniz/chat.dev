@@ -1,9 +1,9 @@
 import { Route, Switch } from "react-router-dom";
-import * as Page from "pages";
+import * as Page from "../pages";
 import { useLocation, useHistory } from "react-router-dom";
 import { useEffect } from "react";
-import { UseAuth } from "contexts/auth/hook";
-import { Spinner } from "components/spinner";
+import { UseAuth } from "../contexts/auth/hook";
+import { Spinner } from "../components/spinner";
 import { Container } from "./styles";
 
 export function Routes() {

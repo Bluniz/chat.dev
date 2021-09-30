@@ -1,4 +1,4 @@
-import { Image } from "components/image/index.jsx";
+import { Image } from "../image/index.jsx";
 import { Wrapper, MessageContainer } from "./styles.js";
 
 export function UserBox({ avatar, name, lastMessage, onClick, active }) {
