@@ -8,9 +8,20 @@ export const Container = styled.main`
 `;
 
 export const Wrapper = styled.div`
-  min-height: 50rem;
-  max-height: 50rem;
   overflow: scroll;
+  min-height: 87%;
+  max-height: 87%;
+`;
+
+export const CreateMessageContainer = styled.form`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 13%;
+
+    padding: 2rem;
+
+    display: flex;
+  `}
 `;
 
 export const MessageContainer = styled.div`
@@ -21,6 +32,8 @@ export const MessageContainer = styled.div`
   padding-bottom: 2rem;
   padding: 0rem 2rem;
   gap: 1rem;
+
+  height: 90rem;
 `;
 
 export const Message = styled.div`
@@ -31,6 +44,7 @@ export const Message = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 0 0 0.2px;
 
   min-width: 25rem;
   max-width: 40rem;
@@ -58,30 +72,19 @@ export const OtherUserMessage = styled(Message)`
   margin-left: 1rem;
 `;
 
-export const CreateMessageContainer = styled.form`
-  ${({ theme }) => css`
-    //  justify-self: flex-end;
-    width: 100%;
-
-    padding: 2rem;
-
-    display: flex;
-  `}
-`;
-
 export const MessageInput = styled.input`
   ${({ theme }) => css`
     background: transparent;
     border: 0;
 
-    flex: 15;
+    width: 90%;
     border-top: 2px solid ${theme.colors.background.secondary};
     border-left: 2px solid ${theme.colors.background.secondary};
     border-bottom: 2px solid ${theme.colors.background.secondary};
 
     border-radius: 1rem 0 0 1rem;
     outline: none;
-    padding: 1rem;
+    padding: 2rem;
     color: ${theme.colors.text.primary};
     font-size: 2rem;
   `}

@@ -31,9 +31,6 @@ export function Home() {
           )}
         </ChatContainer>
       </Main>
-      {/* <CommentButton onClick={onOpen}>
-        <Image src={MessageIcon} alt="messages" />
-      </CommentButton> */}
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <CreateChat onClose={onClose} />

@@ -58,6 +58,7 @@ export function ActiveChat() {
           })}
         </MessageContainer>
       </Wrapper>
+
       <CreateMessageContainer onSubmit={handleCreateMessage}>
         <MessageInput type="text" onChange={handleChange} value={newMessage} />
 
