@@ -15,7 +15,22 @@ html {
 body {
   font-family: "Roboto", sans-serif;
   background: ${({ theme }) => theme.colors.background.gradient}
+
+  
 }
+
+::-webkit-scrollbar{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb{
+  background: #FFD369;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: #44475A;
+}
+
 
 button {
   cursor: pointer;
