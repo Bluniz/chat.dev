@@ -1,6 +1,6 @@
 import { UseAuth } from "../auth/hook";
 import { createContext, useState, useEffect, useCallback } from "react";
-import { database } from "../../services/firebase";
+import { database, auth } from "../../services/firebase";
 import { getUser } from "../../services/users";
 import { toastController } from "../../components/toast";
 
@@ -40,6 +40,22 @@ export const ChatContextProvider = ({ children }) => {
         setChats(newChats);
       }
       setLoading(false);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [user]);
+
+  useEffect(() => {
+    setLoading(true);
+    const Auth = auth.getAuth();
+
+    const unsubscribe = auth.onAuthStateChanged(Auth, (user) => {
+      if (!user) {
+        setActiveChat(null);
+        setLoading(false);
+      }
     });
 
     return () => {

@@ -8,7 +8,7 @@ import {
   ProfileContainer,
   TitleContainer,
 } from "./styles";
-import { ReactComponent as MessageIcon } from "../../assets/message.svg";
+import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { useChats } from "../../contexts/chats/hook";
 
 export const Header = () => {
@@ -23,8 +23,7 @@ export const Header = () => {
   return (
     <StyledHeader>
       <TitleContainer onClick={handleResetActiveChat}>
-        <MessageIcon />
-        <h1>Mensagens</h1>
+        <Logo />
       </TitleContainer>
 
       <ProfileContainer>
