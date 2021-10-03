@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     gap: 2rem;
     cursor: pointer;
 
-    background: ${active ? theme.colors.green[400] : "transparent"};
+    background: ${active ? theme.colors.yellow[400] : "transparent"};
     color: ${active ? theme.colors.text.secondary : theme.colors.text.primary};
 
     & > img {
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 
     &:hover {
       background: ${active
-        ? theme.colors.green[400]
+        ? theme.colors.yellow[400]
         : theme.colors.background.secondary};
     }
   `}

@@ -35,7 +35,7 @@ export const Message = styled.div`
   min-width: 25rem;
   max-width: 40rem;
 
-  background: ${({ theme }) => theme.colors.green[400]};
+  background: ${({ theme }) => theme.colors.yellow[400]};
 
   & > span {
     overflow: hidden;
@@ -98,16 +98,16 @@ export const SendMessageButton = styled.button`
     background: transparent;
     border: 2px solid ${theme.colors.background.secondary};
     padding: 1.5rem;
-    color: ${theme.colors.green[300]};
+    color: ${theme.colors.yellow[400]};
 
     border-radius: 0 1rem 1rem 0;
 
     transition: all 0.2s;
 
     &:hover {
-      background: ${theme.colors.green[300]};
+      background: ${theme.colors.yellow[400]};
       color: ${theme.colors.background.secondary};
-      border: 2px solid ${theme.colors.green[300]};
+      border: 2px solid ${theme.colors.yellow[400]};
     }
   `}
 `;

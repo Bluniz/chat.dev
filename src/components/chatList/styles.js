@@ -36,7 +36,7 @@ export const CommentButton = styled.button`
   ${({ theme }) => css`
     max-height: 8.1rem;
 
-    background: ${theme.colors.green[400]};
+    background: ${theme.colors.yellow[400]};
     border: 0;
 
     color: ${theme.colors.text.secondary};

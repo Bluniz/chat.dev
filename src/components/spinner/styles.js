@@ -2,8 +2,8 @@ import styled, { css } from "styled-components";
 
 export const Loader = styled.div`
   ${({ theme }) => css`
-    border: 0.6rem solid ${theme.colors.background.gradient}; /* Light grey */
-    border-top: 0.6rem solid ${theme.colors.green[300]}; /* Blue */
+    border: 0.6rem solid ${theme.colors.background.default}; /* Light grey */
+    border-top: 0.6rem solid ${theme.colors.yellow[400]}; /* Blue */
     border-radius: 50%;
     width: 4rem;
     height: 4rem;

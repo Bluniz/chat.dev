@@ -37,7 +37,7 @@ export const Form = styled.form`
 
     & > button {
       border: 0;
-      background: ${theme.colors.green[300]};
+      background: ${theme.colors.yellow[400]};
       color: ${theme.colors.text.secondary};
       padding: 1.2rem;
       border-radius: 0.8rem;

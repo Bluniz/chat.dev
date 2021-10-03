@@ -3,15 +3,14 @@ export const darkTheme = {
     background: {
       primary: "#393E46",
       secondary: "#44475a",
-      gradient: "#222831",
+      default: "#222831",
     },
     text: {
       primary: "#f8f8f2",
       secondary: "#222831",
     },
-    green: {
+    yellow: {
       400: "#FFD369",
-      300: "#FFD369",
     },
     blue: {
       100: "#6272a4",

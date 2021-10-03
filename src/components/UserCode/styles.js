@@ -8,7 +8,7 @@ export const Button = styled.button`
     gap: 1rem;
     background: transparent;
     color: ${theme.colors.text.primary};
-    border: 1px solid ${theme.colors.green[300]};
+    border: 1px solid ${theme.colors.yellow[400]};
     border-radius: 0.8rem;
     height: 4rem;
     padding-right: 1rem;
@@ -21,7 +21,7 @@ export const ImgContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${theme.colors.green[300]};
+    background: ${theme.colors.yellow[400]};
     height: 4rem;
     width: 4rem;
     flex: 1;

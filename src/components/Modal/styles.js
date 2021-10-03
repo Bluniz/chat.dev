@@ -46,7 +46,7 @@ export const CloseButton = styled.button`
     background: ${({ theme }) => theme.colors.background.primary};
 
     & > svg {
-      color: ${({ theme }) => theme.colors.green[300]};
+      color: ${({ theme }) => theme.colors.yellow[400]};
     }
   }
 `;

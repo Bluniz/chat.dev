@@ -8,7 +8,7 @@ export const Container = styled.main`
     display: flex;
     flex-direction: column;
 
-    background: ${theme.colors.background.gradient};
+    background: ${theme.colors.background.default};
 
     overflow: hidden;
 
@@ -132,8 +132,8 @@ export const Button = styled.button`
     }
 
     &:hover {
-      border: 2px solid ${theme.colors.green[300]};
-      color: ${theme.colors.green[300]};
+      border: 2px solid ${theme.colors.yellow[400]};
+      color: ${theme.colors.yellow[400]};
     }
 
     ${theme.breakAt(theme.breakpoints.md)} {

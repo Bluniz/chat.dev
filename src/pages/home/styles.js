@@ -6,7 +6,7 @@ export const Container = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background: ${theme.colors.background.gradient};
+    background: ${theme.colors.background.default};
   `}
 `;
 

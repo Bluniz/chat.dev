@@ -18,7 +18,7 @@ export const TitleContainer = styled.div`
     cursor: pointer;
 
     & > svg {
-      fill: ${theme.colors.green[300]};
+      fill: ${theme.colors.yellow[400]};
     }
   `}
 `;

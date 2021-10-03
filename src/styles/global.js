@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: "Roboto", sans-serif;
-  background: ${({ theme }) => theme.colors.background.gradient}
+  background: ${({ theme }) => theme.colors.background.default}
 
   
 }
