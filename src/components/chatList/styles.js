@@ -8,11 +8,10 @@ export const Wrapper = styled.aside`
 export const MessagesContainer = styled.div`
   ${({ theme }) => css`
     width: 40rem;
+    border-right: 0.1rem solid ${theme.colors.background.primary};
 
-    border-right: 1px solid ${theme.colors.background.primary};
-    height: 51rem;
-
-    max-height: 51rem;
+    height: 90%;
+    max-height: 90%;
 
     overflow-y: scroll;
   `}

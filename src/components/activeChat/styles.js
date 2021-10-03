@@ -78,9 +78,9 @@ export const MessageInput = styled.input`
     border: 0;
 
     width: 90%;
-    border-top: 2px solid ${theme.colors.background.secondary};
-    border-left: 2px solid ${theme.colors.background.secondary};
-    border-bottom: 2px solid ${theme.colors.background.secondary};
+    border-top: 0.2rem solid ${theme.colors.background.secondary};
+    border-left: 0.2rem solid ${theme.colors.background.secondary};
+    border-bottom: 0.2rem solid ${theme.colors.background.secondary};
 
     border-radius: 1rem 0 0 1rem;
     outline: none;
@@ -99,7 +99,7 @@ export const SendMessageButton = styled.button`
     flex: 1;
 
     background: transparent;
-    border: 2px solid ${theme.colors.background.secondary};
+    border: 0.2rem solid ${theme.colors.background.secondary};
     padding: 1.5rem;
     color: ${theme.colors.yellow[400]};
 
@@ -110,7 +110,7 @@ export const SendMessageButton = styled.button`
     &:hover {
       background: ${theme.colors.yellow[400]};
       color: ${theme.colors.background.secondary};
-      border: 2px solid ${theme.colors.yellow[400]};
+      border: 0.2rem solid ${theme.colors.yellow[400]};
     }
   `}
 `;

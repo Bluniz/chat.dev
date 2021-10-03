@@ -20,15 +20,15 @@ body {
 }
 
 ::-webkit-scrollbar{
-  width: 6px;
-  height: 6px;
+  width: 0.6rem;
+  height: 0.6rem;
 }
 ::-webkit-scrollbar-thumb{
-  background: #FFD369;
-  border-radius: 8px;
+  background: ${({ theme }) => theme.colors.yellow[400]};
+  border-radius: 0.8rem;
 }
 ::-webkit-scrollbar-thumb:hover{
-  background: #44475A;
+  background: ${({ theme }) => theme.colors.background.secondary}
 }
 
 

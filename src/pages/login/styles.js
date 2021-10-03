@@ -100,7 +100,7 @@ export const PrincipalContainer = styled.section`
       }
     }
     ${theme.breakAt(theme.breakpoints.md)} {
-      border-left: 1px solid ${theme.colors.background.primary};
+      border-left: 0.1rem solid ${theme.colors.background.primary};
       justify-content: center;
       flex: 1;
     }
@@ -109,7 +109,7 @@ export const PrincipalContainer = styled.section`
 
 export const Button = styled.button`
   ${({ theme }) => css`
-    border: 2px solid ${theme.colors.background.primary};
+    border: 0.2rem solid ${theme.colors.background.primary};
     background: transparent;
     width: 100%;
     color: ${theme.colors.text.primary};
@@ -132,7 +132,7 @@ export const Button = styled.button`
     }
 
     &:hover {
-      border: 2px solid ${theme.colors.yellow[400]};
+      border: 0.2rem solid ${theme.colors.yellow[400]};
       color: ${theme.colors.yellow[400]};
     }
 

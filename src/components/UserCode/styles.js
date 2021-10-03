@@ -8,7 +8,7 @@ export const Button = styled.button`
     gap: 1rem;
     background: transparent;
     color: ${theme.colors.text.primary};
-    border: 1px solid ${theme.colors.yellow[400]};
+    border: 0.1rem solid ${theme.colors.yellow[400]};
     border-radius: 0.8rem;
     height: 4rem;
     padding-right: 1rem;

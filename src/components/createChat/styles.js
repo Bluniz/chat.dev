@@ -61,7 +61,7 @@ export const Form = styled.form`
 export const Input = styled.input`
   ${({ theme, error }) => css`
     background: transparent;
-    border: 2px solid
+    border: 0.2rem solid
       ${error ? getRedColor(theme) : theme.colors.background.primary};
     border-radius: 0.8rem;
     padding: 1rem 3rem;

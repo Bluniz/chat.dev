@@ -13,7 +13,7 @@ export const Button = styled.button`
   ${({ theme }) => css`
     width: 100%;
     background: transparent;
-    border: 1px solid ${theme.colors.yellow[400]};
+    border: 0.1rem solid ${theme.colors.yellow[400]};
     color: ${theme.colors.text.primary};
     font-weight: bold;
     font-size: 1.5rem;

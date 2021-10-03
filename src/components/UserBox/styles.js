@@ -4,7 +4,8 @@ export const Wrapper = styled.div`
   ${({ theme, active }) => css`
     display: flex;
     align-items: center;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.background.primary};
+    border-bottom: 0.1rem solid
+      ${({ theme }) => theme.colors.background.primary};
     cursor: pointer;
     padding: 1.5rem;
     gap: 2rem;
